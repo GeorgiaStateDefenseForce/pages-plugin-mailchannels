@@ -117,6 +117,22 @@ var onFormSubmit = async ({
       return next();
     }
     formData.delete("cf-turnstile-response");
+
+    let googleFormData = new FormData();
+    googleFormData.append('entry.299316044', formData.get("fname").toString());
+    googleFormData.append('entry.246872012', formData.get("lname").toString());
+    googleFormData.append('entry.1819157110', formData.get("email").toString());
+    googleFormData.append('entry.1829779236', formData.get("phone").toString());
+    googleFormData.append('entry.1152223255', formData.get("city").toString());
+    googleFormData.append('entry.433270788', formData.get("state").toString());
+    googleFormData.append('entry.1514106883', formData.get("findout").toString());
+    googleFormData.append('entry.909904957', formData.get("preferred").toString());
+    let googleUrl = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSeJAeEHO1H4vpLkMdwG1kc_U4KtAEAYFqbgeDXbhDpXQuFpvA/formResponse';
+    let googleResult = await fetch(googleUrl, {
+      body: googleFormData,
+      method: 'POST',
+    });
+    let googleOutcome = await googleResult.json();
   }
 
   if (name) {
