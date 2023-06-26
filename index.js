@@ -127,12 +127,14 @@ var onFormSubmit = async ({
     googleFormData.append('entry.433270788', formData.get("state").toString());
     googleFormData.append('entry.1514106883', formData.get("findout").toString());
     googleFormData.append('entry.909904957', formData.get("preferred").toString());
+    console.log(googleFormData);
     let googleUrl = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSeJAeEHO1H4vpLkMdwG1kc_U4KtAEAYFqbgeDXbhDpXQuFpvA/formResponse';
     let googleResult = await fetch(googleUrl, {
       body: googleFormData,
       method: 'POST',
     });
     let googleOutcome = await googleResult.json();
+    console.log(googleOutcome);
   }
 
   if (name) {
