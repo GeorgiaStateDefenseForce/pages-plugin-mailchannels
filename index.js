@@ -112,11 +112,12 @@ var onFormSubmit = async ({
       method: 'POST',
     });
     let outcome = await result.json();
-    if (!outcome.success) {
-      console.log("Token Failure from " + ip);
-      return new Response('The provided Spam Protection token was not valid!', { status: 401 });
-      //return next();
-    }
+    // comment out below for testing google form entry... TODO
+    //if (!outcome.success) {
+    //  console.log("Token Failure from " + ip);
+    //  return new Response('The provided Spam Protection token was not valid!', { status: 401 });
+    //  //return next();
+    //}
     formData.delete("cf-turnstile-response");
 
     let googleFormData = new FormData();
