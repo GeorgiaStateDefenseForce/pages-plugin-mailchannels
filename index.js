@@ -114,7 +114,8 @@ var onFormSubmit = async ({
     let outcome = await result.json();
     if (!outcome.success) {
       console.log("Token Failure from " + ip);
-      return next();
+      return new Response('The provided Spam Protection token was not valid!', { status: 401 });
+      //return next();
     }
     formData.delete("cf-turnstile-response");
 
