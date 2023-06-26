@@ -1,6 +1,6 @@
 {
-  "name": "@cardiff.marketing/pages-plugin-mailchannels",
-  "version": "1.0.0",
+  "name": "@GeorgiaStateDefenseForce/pages-plugin-mailchannels",
+  "version": "1.0.1",
   "main": "index.js",
   "types": "index.d.ts"
 }
